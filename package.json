@@ -1,0 +1,32 @@
+{
+  "name": "relevance-tool",
+  "description": "Relevance language editor",
+  "keywords": [
+    "relevance",
+    "language",
+    "editor",
+    "compiler"
+  ],
+  "author": "Bao Nguyen",
+  "version": "0.0.1",
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "main": "./lib/relevance",
+  "bin": {
+    "relevance": "./bin/relevance"
+  },
+  "preferGlobal": true,
+  "scripts": {},
+  "homepage": "http://ibm.com",
+  "devDependencies": {
+    "jison": ">=0.2.0",
+    "highlight.js": "~8.0.0",
+    "underscore": "~1.5.2",
+    "colors": "~1.1.2"
+  }
+}

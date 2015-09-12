@@ -1,0 +1,26 @@
+{
+  "name": "relevance-tool",
+  "version": "0.0.1",
+  "main": [
+    "lib/relevance.js"
+  ],
+  "description": "Relevance language editor",
+  "keywords": [
+    "relevance",
+    "language",
+    "editor",
+    "compiler"
+  ],
+  "devDependencies": {
+    "jison": ">=0.2.0",
+    "highlight.js": "~8.0.0",
+    "underscore": "~1.5.2",
+    "colors": "~1.1.2"
+  },
+  "author": {
+    "name": "Bao Nguyen"
+  },
+  "ignore": [
+    "test"
+  ]
+}
