@@ -1,6 +1,7 @@
-(function() {
-  var relJsonPath = "../relevance-language.json",
-      relJson = require(relJsonPath),
+define(function(require, exports, module) {
+  "use strict";
+
+  var relJson = require("./relevance-language").json,
       typeParentMapping = {},
       pluralSingularMapping = {},
       index = {},
@@ -96,5 +97,4 @@
     return resultArray;
   };
 
-
-}).call(this);
+});
