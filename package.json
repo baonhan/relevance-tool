@@ -24,7 +24,7 @@
   "scripts": {},
   "homepage": "http://ibm.com",
   "devDependencies": {
-    "jison": ">=0.2.0",
+    "jison": "=0.4.13",
     "highlight.js": "~8.0.0",
     "underscore": "~1.5.2",
     "colors": "~1.1.2"
