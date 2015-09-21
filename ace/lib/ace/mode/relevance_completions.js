@@ -53,7 +53,9 @@ var RelevanceCompletions = function() {
           console.log(typeHintNode.getDataType().name);
           var allProps = relevance.getAllPropType(typeHintNode.getDataType().name);
           if (allProps) {
-            return allProps.map(function (p) {
+            return allProps.filter(function(p) {
+              return (p.singularPhrase !== undefined);
+            }).map(function (p) {
               return {
                 value: p.singularPhrase,
                 meta: p.resultType, //typeHintNode.getDataType().name,

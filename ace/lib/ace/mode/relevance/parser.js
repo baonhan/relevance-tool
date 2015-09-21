@@ -77,7 +77,8 @@ yy: {},
 symbols_: {"error":2,"root":3,"expression":4,"IF":5,"THEN":6,"ELSE":7,"collection":8,";":9,"tuple":10,"or_expression":11,",":12,"OR":13,"and_expression":14,"AND":15,"relation_expr":16,"sum":17,"RELATION":18,"+":19,"product":20,"-":21,"PRODUCT_OPERATOR":22,"unary":23,"EXISTS":24,"NOT_EXISTS":25,"NOT":26,"cast":27,"AS":28,"PHRASE":29,"r_property":30,"selection":31,"OF":32,"property":33,"->":34,"ITS":35,"index":36,"WHOSE":37,"primary":38,"?":39,"(":40,")":41,"STRING":42,"NUMERAL":43,"IT":44,"$accept":0,"$end":1},
 terminals_: {2:"error",5:"IF",6:"THEN",7:"ELSE",9:";",12:",",13:"OR",15:"AND",18:"RELATION",19:"+",21:"-",22:"PRODUCT_OPERATOR",24:"EXISTS",25:"NOT_EXISTS",26:"NOT",28:"AS",29:"PHRASE",32:"OF",34:"->",35:"ITS",37:"WHOSE",39:"?",40:"(",41:")",42:"STRING",43:"NUMERAL",44:"IT"},
 productions_: [0,[3,1],[4,6],[4,1],[8,3],[8,1],[10,3],[10,1],[11,3],[11,1],[14,3],[14,1],[16,3],[16,1],[17,3],[17,3],[17,1],[20,3],[20,1],[23,2],[23,2],[23,2],[23,2],[23,1],[27,3],[27,1],[30,3],[30,1],[33,3],[33,3],[33,3],[33,2],[33,1],[31,3],[31,1],[31,1],[36,2],[36,1],[36,1],[38,3],[38,1],[38,1],[38,1]],
-performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */) {
+performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */
+/**/) {
 /* this == yyval */
 
 var $0 = $$.length - 1;
@@ -631,7 +632,8 @@ stateStackSize:function stateStackSize() {
         return this.conditionStack.length;
     },
 options: {},
-performAction: function anonymous(yy,yy_,$avoiding_name_collisions,YY_START) {
+performAction: function anonymous(yy,yy_,$avoiding_name_collisions,YY_START
+/**/) {
 
 var YYSTATE=YY_START;
 switch($avoiding_name_collisions) {
@@ -691,7 +693,7 @@ case 26:return 39;
 break;
 }
 },
-rules: [/^(?:\s+)/,/^(?:\$?(there-do-not-exist|there-does-not-exist|there-exist-no|there-exists-no|exists-no|exist-no))/,/^(?:\$?(there-exists|there-exist|exists|exist))/,/^(?:\$?(does-not-end-with|ends-with|does-not-start-with|starts-with|is-not-contained-by|is-contained-by|does-not-contain|is-not-greater-than-or-equal-to|is-greater-than-or-equal-to|is-not-less-than-or-equal-to|is-less-than-or-equal-to|is-not-less-than|is-less-than|is-not-greater-than|is-greater-than|is-equal-to|is-not-equal-to|is-not|is|does-not-equal|equals|contains|\!=|>=|<=|>|<|=))/,/^(?:\$not)/,/^(?:\$its)/,/^(?:\$it)/,/^(?:\$whose)/,/^(?:\$as)/,/^(?:\$of)/,/^(?:\$and)/,/^(?:\$or)/,/^(?:\$if)/,/^(?:\$then)/,/^(?:\$else)/,/^(?:\+)/,/^(?:->|'s?|\.)/,/^(?:-)/,/^(?:\()/,/^(?:\))/,/^(?:;)/,/^(?:,)/,/^(?:\*|\/|\$mod|&)/,/^(?:[0-9]+)/,/^(?:"[^"]*")/,/^(?:[a-zA-Z\s]*[a-zA-Z])/,/^(?:\?)/],
+rules: [/^(?:\s+)/,/^(?:\$?(there-do-not-exist|there-does-not-exist|there-exist-no|there-exists-no|exists-no|exist-no))/,/^(?:\$?(there-exists|there-exist|exists|exist))/,/^(?:\$?(does-not-end-with|ends-with|does-not-start-with|starts-with|is-not-contained-by|is-contained-by|does-not-contain|is-not-greater-than-or-equal-to|is-greater-than-or-equal-to|is-not-less-than-or-equal-to|is-less-than-or-equal-to|is-not-less-than|is-less-than|is-not-greater-than|is-greater-than|is-equal-to|is-not-equal-to|is-not|is|does-not-equal|equals|contains|\!=|>=|<=|>|<|=))/,/^(?:\$not)/,/^(?:\$its)/,/^(?:\$it)/,/^(?:\$whose)/,/^(?:\$as)/,/^(?:\$of)/,/^(?:\$and)/,/^(?:\$or)/,/^(?:\$if)/,/^(?:\$then)/,/^(?:\$else)/,/^(?:\+)/,/^(?:->|'s?|\.)/,/^(?:-)/,/^(?:\()/,/^(?:\))/,/^(?:;)/,/^(?:,)/,/^(?:\*|\/|\$mod|&)/,/^(?:[0-9]+)/,/^(?:"[^"]*")/,/^(?:[a-zA-Z][a-zA-Z0-9_\s]*[a-zA-Z0-9])/,/^(?:\?)/],
 conditions: {"INITIAL":{"rules":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26],"inclusive":true}}
 };
 return lexer;

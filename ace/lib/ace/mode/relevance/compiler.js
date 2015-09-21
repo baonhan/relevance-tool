@@ -57,9 +57,7 @@ var parser = require("./parser");
     if ((name === "true") || (name === "false")){
       return new RelDataType("boolean");
     }
-    // todo: return creation method datatype
     return new RelDataType(relevance.getCreationDataType(name, params).resultType);
-    //return new RelDataType("c("+name+")");
   };
 
   /**
