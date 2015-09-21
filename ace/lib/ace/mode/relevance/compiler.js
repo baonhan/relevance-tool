@@ -19,11 +19,11 @@ var parser = require("./parser");
   var RelDataType = function(name) {
     this.name = name;
   };
+
   RelDataType.prototype.getPropType = function(prop, params) {
-    // todo: return the datatype of property
     return new RelDataType(relevance.getPropType(this.name, prop, params).resultType);
-    //return new RelDataType("p("+this.name+", "+prop+")");
   };
+
   RelDataType.prototype.toString = function() {
     return "[RelevanceType "+this.name+"]";
   };
@@ -38,10 +38,14 @@ var parser = require("./parser");
   var RelTupleDataType = function(childTypes) {
     this.children = childTypes;
   };
+
   RelTupleDataType.prototype.getPropType = function(prop, params) {
-    // todo: handle "item # of it"
-    return new RelDataType("p(tuple, "+prop+")");
+    if (prop.indexOf("item ") == 0) {
+      var index = prop.substr("item ".length);
+      return this.children[index];
+    }
   };
+
   RelTupleDataType.prototype.toString = function() {
     return "[RelevanceType Tuple]";
   };
@@ -204,7 +208,7 @@ Numeral.prototype.toColorfulRel = function() {
 };
 
 Numeral.prototype.getDataType = function() {
-  return new RelDataType("number");
+  return new RelDataType("integer");
 };
 
 
