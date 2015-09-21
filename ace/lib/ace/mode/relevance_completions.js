@@ -33,7 +33,7 @@ define(function(require, exports, module) {
 
 var TokenIterator = require("../token_iterator").TokenIterator;
 var compiler = require("./relevance/compiler");
-  var relevance = require("./relevance/relevance");
+var relevance = require("./relevance/relevance");
 
 function compile(rel) {
   return compiler.compile(rel);
@@ -50,6 +50,7 @@ var RelevanceCompletions = function() {
         var ast = prediction[0];
         var typeHintNode = prediction[1];
         if (typeHintNode) {
+          console.log(typeHintNode.getDataType().name);
           var allProps = relevance.getAllPropType(typeHintNode.getDataType().name);
           if (allProps) {
             return allProps.map(function (p) {

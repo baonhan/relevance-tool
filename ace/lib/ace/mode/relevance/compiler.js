@@ -621,14 +621,14 @@ for (var fn in parserFuncs) {
     var pre = rel.substr(0, position);
     var post = rel.substr(position);
     while (pre.length > 0) {
-      if (pre.charAt(pre.length - 1) !== ' ') {
+      if ([' ', '.', ')', '('].indexOf(pre.charAt(pre.length - 1)) == -1){
         pre = pre.substr(0, pre.length - 1);
       } else {
         break;
       }
     }
     while (post.length > 0) {
-      if (post.charAt(0) !== ' ') {
+      if ([' ', '.', ')', '('].indexOf(post.charAt(0)) == -1){
         post = post.substr(1);
       } else {
         break;

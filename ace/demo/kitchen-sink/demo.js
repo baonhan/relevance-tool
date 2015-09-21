@@ -84,6 +84,9 @@ if (location.href.indexOf("noworker") !== -1) {
     workerModule.WorkerClient = workerModule.UIWorkerClient;
 }
 
+// for relevance conversion shortcut Ctrl-Enter
+var compiler = require("ace/mode/relevance/compiler");
+
 /*********** create editor ***************************/
 var container = document.getElementById("editor-container");
 
@@ -165,12 +168,14 @@ env.editor.commands.addCommands([{
     name: "execute",
     bindKey: "ctrl+enter",
     exec: function(editor) {
+        var rel = "";
         try {
-            var r = window.eval(editor.getCopyText() || editor.getValue());
+            var ast = compiler.compile(editor.getCopyText() || editor.getValue());
+            var rel = ast.toString();
         } catch(e) {
-            r = e;
+            rel = e;
         }
-        editor.cmdLine.setValue(r + "");
+        editor.cmdLine.setValue(rel);
     },
     readOnly: true
 }, {
