@@ -1,2 +1,5 @@
 .idea
 node_modules
+ace/.idea
+ace/__MACOSX
+ace/node_modules
