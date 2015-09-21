@@ -346,11 +346,20 @@ Phrase.prototype.toString = function() {
 
 Phrase.prototype.getDataType = function() {
   if (typeof this.name == "string") {
+    var paramTypes = [];
     if (this.directAccess) {
       var sourceType = this.scope.getDataType();
-      return sourceType.getPropType(this.name, this.params);
+      if (this.params) {
+        return sourceType.getPropType(this.name, this.params.getDataType().name);
+      } else {
+        return sourceType.getPropType(this.name);
+      }
     } else {
-      return getCreationDataType(this.name, this.params);
+      if (this.params) {
+        return getCreationDataType(this.name, this.params.getDataType().name);
+      } else {
+        return getCreationDataType(this.name);
+      }
     }
   } else {
     throw new Error("Invalid phrase");

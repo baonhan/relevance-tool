@@ -58,6 +58,7 @@ var RelevanceCompletions = function() {
             }).map(function (p) {
               return {
                 value: p.singularPhrase,
+                snippet: p.singularPhrase + ' $0',
                 meta: p.resultType, //typeHintNode.getDataType().name,
                 score: Number.MAX_VALUE
               };
