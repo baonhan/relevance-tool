@@ -51,7 +51,7 @@ var RelevanceCompletions = function() {
         var typeHintNode = prediction[1];
         if (typeHintNode) {
           console.log(typeHintNode.getDataType().name);
-          var allProps = relevance.getAllPropType(typeHintNode.getDataType().name);
+          var allProps = typeHintNode.getDataType().getProperties();
           if (allProps) {
             return allProps.filter(function(p) {
               return (p.singularPhrase !== undefined);

@@ -28,6 +28,10 @@ var parser = require("./parser");
     return "[RelevanceType "+this.name+"]";
   };
 
+  RelDataType.prototype.getProperties = function() {
+    return relevance.getAllPropType(this.name);
+  };
+
   /**
    * Represents tuple data type. It has an array of child data types.
    * Each child type is a RelDataType
@@ -37,6 +41,7 @@ var parser = require("./parser");
    */
   var RelTupleDataType = function(childTypes) {
     this.children = childTypes;
+    this.name = "tuple";
   };
 
   RelTupleDataType.prototype.getPropType = function(prop, params) {
@@ -48,6 +53,18 @@ var parser = require("./parser");
 
   RelTupleDataType.prototype.toString = function() {
     return "[RelevanceType Tuple]";
+  };
+
+  RelTupleDataType.prototype.getProperties = function() {
+    var props = [];
+    for (var i=0; i<this.children.length; i++) {
+      props.push({
+        singularPhrase: "item "+ i,
+        pluralPhrase: "items "+i,
+        resultType: this.getPropType("item "+i).name
+      });
+    }
+    return props;
   };
 
   /**
