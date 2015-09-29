@@ -97,7 +97,7 @@ function escapeHtml(unsafe) {
             ref += "</table>";
             ref += "</div>";
 
-            var snippet = p.pluralPhrase;
+            var snippet = p.singularPhrase;
             if (title.indexOf('<') > -1) {
               var properties = title.match(/<\(?(.+)\)?>/)[1].split(', ');
               if (properties.length == 1) {
