@@ -588,8 +588,8 @@ var beautify = require("ace/ext/beautify");
 env.editor.commands.addCommands(beautify.commands);
 
 env.editor.commands.on("afterExec", function(e){
-    if ((e.command.name == "insertstring") && /^.*(\.|\.\s|'s\s|'\s|->\s|its\s|\()$/.test(editor.getValue())) {
-        editor.execCommand("startAutocomplete")
+    if ((e.command.name == "insertstring") && /^.*(\.|\.\s|'s\s|'\s|->\s|its\s|\()$/.test(env.editor.getValue())) {
+        env.editor.execCommand("startAutocomplete")
     }
 });
 
