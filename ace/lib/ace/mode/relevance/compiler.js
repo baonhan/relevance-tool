@@ -49,6 +49,10 @@ var parser = require("./parser");
       var index = prop.substr("item ".length);
       return this.children[index];
     }
+    if (prop.indexOf("items ") == 0) {
+      var index = prop.substr("items ".length);
+      return this.children[index];
+    }
   };
 
   RelTupleDataType.prototype.toString = function() {
@@ -58,10 +62,22 @@ var parser = require("./parser");
   RelTupleDataType.prototype.getProperties = function() {
     var props = [];
     for (var i=0; i<this.children.length; i++) {
+      var desc = "Returns "+(i+1)+"th item of the tuple";
+      if (i == 0) {
+        desc = "Returns first item of the tuple";
+      }
+      if (i == 1) {
+        desc = "Returns 2nd item of the tuple";
+      }
+      if (i == 2) {
+        desc = "Returns 3rd item of the tuple";
+      }
       props.push({
+        key: "item "+i+" of <tuple>: "+this.getPropType("item "+i).name,
         singularPhrase: "item "+ i,
         pluralPhrase: "items "+i,
-        resultType: this.getPropType("item "+i).name
+        resultType: this.getPropType("item "+i).name,
+        description: desc
       });
     }
     return props;

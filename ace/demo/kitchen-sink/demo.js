@@ -577,9 +577,9 @@ env.editSnippets = function() {
     editor.focus();
 };
 
-require("ace/ext/language_tools");
+var tools = require("ace/ext/language_tools");
 env.editor.setOptions({
-    enableBasicAutocompletion: true,
+    enableBasicAutocompletion: [tools.keyWordCompleter],
     enableLiveAutocompletion: false,
     enableSnippets: true
 });
@@ -588,7 +588,7 @@ var beautify = require("ace/ext/beautify");
 env.editor.commands.addCommands(beautify.commands);
 
 env.editor.commands.on("afterExec", function(e){
-    if ((e.command.name == "insertstring") && /^.*(\.|\.\s|->\s|its\s|\()$/.test(editor.getValue())) {
+    if ((e.command.name == "insertstring") && /^.*(\.|\.\s|'s\s|'\s|->\s|its\s|\()$/.test(editor.getValue())) {
         editor.execCommand("startAutocomplete")
     }
 });
