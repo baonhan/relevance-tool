@@ -86,6 +86,7 @@ if (location.href.indexOf("noworker") !== -1) {
 
 // for relevance conversion shortcut Ctrl-Enter
 var compiler = require("ace/mode/relevance/compiler");
+var relevance = require("ace/mode/relevance/relevance");
 
 /*********** create editor ***************************/
 var container = document.getElementById("editor-container");
@@ -305,6 +306,8 @@ var showVScrollEl = document.getElementById("show_vscroll");
 var animateScrollEl = document.getElementById("animate_scroll");
 var softTabEl = document.getElementById("soft_tab");
 var behavioursEl = document.getElementById("enable_behaviours");
+var platformEl = document.getElementById("platform");
+var qnaVersionEl = document.getElementById("qna_version");
 
 fillDropdown(docEl, doclist.all);
 
@@ -350,8 +353,25 @@ bindDropdown("doc", function(name) {
         updateUIEditorOptions();
         env.editor.focus();
     });
+    if(name === "Relevance") {
+        document.getElementById("platform_tr").style.visibility = "visible";
+        document.getElementById("qna_version_tr").style.visibility = "visible";
+    } else {
+        document.getElementById("platform_tr").style.visibility = "hidden";
+        document.getElementById("qna_version_tr").style.visibility = "hidden";
+    }
 });
 
+fillDropdown(platformEl, Object.keys(relevance.getPlatformVersionEmu()));
+bindDropdown(platformEl, function(platform) {
+    while (qnaVersionEl.firstChild) {
+        qnaVersionEl.removeChild(qnaVersionEl.lastChild);
+    }
+    fillDropdown(qnaVersionEl, relevance.getPlatformVersionEmu()[platform]);
+});
+bindDropdown(qnaVersionEl, function(ver) {
+    relevance.buildIndex(ver, platformEl.value);
+});
 
 function updateUIEditorOptions() {
     var editor = env.editor;

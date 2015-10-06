@@ -2,6 +2,7 @@ define(function(require, exports, module) {
   "use strict";
 
   var relJson = require("./relevance-language").json,
+      platformVersionEmu = {},
       typeParentMapping = {},
       pluralSingularMapping = {},
       keyIndex = {},
@@ -13,6 +14,19 @@ define(function(require, exports, module) {
 
   var getParent = function(type) {
     return typeParentMapping[type] ? typeParentMapping[type] : type;
+  };
+
+  var addPlatformVersionEmu = function(property_json) {
+    for(var ver in property_json["availability"]) {
+      for(var pf in property_json["availability"][ver]) {
+        if(!platformVersionEmu[property_json["availability"][ver][pf]]) {
+          platformVersionEmu[property_json["availability"][ver][pf]] = [];
+        }
+        if(platformVersionEmu[property_json["availability"][ver][pf]].indexOf(ver) < 0) {
+          platformVersionEmu[property_json["availability"][ver][pf]].push(ver);
+        }
+      }
+    }
   };
 
   var addKeyIndex = function(property_json) {
@@ -96,6 +110,7 @@ define(function(require, exports, module) {
   };
 
   exports.buildIndex = function(version, platform) {
+    platformVersionEmu = {};
     typeParentMapping = {};
     pluralSingularMapping = {};
     keyIndex = {};
@@ -104,6 +119,7 @@ define(function(require, exports, module) {
     for(var k in relJson["types"]) {
       var v = relJson["types"][k];
 
+      addPlatformVersionEmu(v);
       if(isVersionPlatformComplied(v, version, platform)) {
         addTypeParentMapping(v);
       }
@@ -112,12 +128,17 @@ define(function(require, exports, module) {
     for(var k in relJson["properties"]) {
       var v = relJson["properties"][k];
 
+      addPlatformVersionEmu(v);
       if(isVersionPlatformComplied(v, version, platform)) {
         addPluralSingularMapping(v);
         addKeyIndex(v);
         addTypeIndex(v);
       }
     }
+  };
+
+  exports.getPlatformVersionEmu = function() {
+    return platformVersionEmu;
   };
 
   exports.getPropType = function(type, prop, params) {
