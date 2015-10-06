@@ -34,6 +34,7 @@ define(function(require, exports, module) {
 var TokenIterator = require("../token_iterator").TokenIterator;
 var compiler = require("./relevance/compiler");
 var relevance = require("./relevance/relevance");
+var docs = require("./relevance/docs").json;
 
 function compile(rel) {
   return compiler.compile(rel);
@@ -74,27 +75,10 @@ function escapeHtml(unsafe) {
             } else {
               title = p.key.substr(0, p.key.indexOf(": "));
             }
-            var ref = "<div style='max-width: 400px'>";
+            var ref = "<div class='rel-docs'>";
             ref += "<strong style='font-size: 14px'>" + escapeHtml(title) + "</strong>";
-            // todo: retrieve from developer.bigfix.com database
-            var desc = p.description? p.description : "";
-            if (p.singularPhrase == 'system folder') {
-              desc = "Windows systems, returns the 32 bit \"System32\" folder. eg: C:\\Windows\\System32 or C:\\Windows\\SysWow64. Platforms other than Windows this is a synonym for <root folder>";
-            }else if (p.singularPhrase == 'filesystem') {
-              desc = "Returns the filesystem on which the folder resides. On a Macintosh, this inspector returns a <volume> object.";
-            }else if (p.singularPhrase == 'file') {
-              desc = "Iterates through the files of a folder returning file objects. When combined with a whose clause you can select files with specific properties. See file.";
-            }else if (p.singularPhrase == 'rpm') {
-              desc = "Returns an object representing the rpm database of the machine.";
-            }
-            ref += "<p>"+escapeHtml(desc)+"<p>";
-            ref += "<p><strong>Plural: </strong>" + escapeHtml(p.pluralPhrase) + "<br/>";
-            ref += "<strong>Return type: </strong>" + escapeHtml(p.resultType) + "</p>";
-            ref += "<p><table><tr><td><strong>Version</strong></td><td><strong>Platform</strong></td></tr>";
-            for (var version in p.availability){
-              ref += "<tr><td>"+ version + "</td><td>"+ p.availability[version].join(", ") +"</td></tr>";
-            }
-            ref += "</table>";
+            var desc = p.description? p.description : docs[p.key];
+            ref += desc;
             ref += "</div>";
 
             var snippet = p.singularPhrase;

@@ -453,3 +453,124 @@ styles.join("\n")
 .ace_br13{border-top-left-radius    : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}
 .ace_br14{border-top-right-radius   : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}
 .ace_br15{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px;}
+
+.rel-docs {
+    white-space: normal;
+    max-width: 400px
+}
+
+.rel-docs .qna {
+    background-color: #E3DAFF;
+    font-family: monospace;
+    word-wrap: break-word;
+}
+
+.rel-docs .qna ul {
+    padding: .5rem 1rem .5rem 1rem;
+}
+
+.rel-docs .qna li {
+    font-size: 90%;
+    list-style: none;
+    margin: 0;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    white-space: pre-wrap;
+}
+
+.rel-docs .hljs-keyword {
+    color: #4178BE;
+}
+
+.rel-docs .hljs-string {
+    color: #008571;
+}
+
+.rel-docs .hljs-number {
+    color: #734098;
+}
+
+.rel-docs .relevance-reference-category {
+    margin-top: 2rem;
+}
+
+.rel-docs .relevance-reference-category h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.rel-docs .relevance-reference-types {
+    margin: 0;
+    padding: 0;
+    line-height: 24px;
+
+    list-style: none;
+}
+
+.rel-docs .relevance-reference-types li {
+    display: inline;
+}
+
+.rel-docs .relevance-reference-types li:after {
+    content: ", ";
+}
+
+.rel-docs .relevance-reference-types li:last-child:after {
+    content: "";
+}
+
+.rel-docs .relevance-property {
+    margin-top: 1rem;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.rel-docs .relevance-property p {
+    margin-top: 0;
+}
+
+.rel-docs .relevance-property-header {
+    display: none;
+}
+
+.rel-docs .relevance-property-key {
+    padding: .75rem .75rem .75rem 0;
+}
+
+.rel-docs .relevance-property-expand {
+    cursor: pointer;
+    display: inline-block;
+    height: 100%;
+    padding: .75rem 0 .75rem .75rem;
+    width: 1.5em;
+}
+
+.rel-docs .hidden {
+    display: block;
+}
+
+.rel-docs .relevance-property-body {
+}
+
+.relevance-property-block,
+.rel-docs .relevance-type-block {
+    margin-bottom: 1rem;
+}
+
+.rel-docs .relevance-property-links a {
+    display: none;
+    margin-right: 1rem;
+}
+
+.rel-docs .relevance-type-sections {
+    padding-left: 1rem;
+    list-style: none;
+}
+
+.rel-docs .relevance-type-sections li {
+    margin: 6px 0;
+}
+
+.rel-docs .relevance-type-buttons button {
+    margin-right: 1rem;
+}
