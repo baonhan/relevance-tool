@@ -368,6 +368,7 @@ bindDropdown(platformEl, function(platform) {
         qnaVersionEl.removeChild(qnaVersionEl.lastChild);
     }
     fillDropdown(qnaVersionEl, relevance.getPlatformVersionEmu()[platform]);
+    relevance.buildIndex(qnaVersionEl.value, platform);
 });
 bindDropdown(qnaVersionEl, function(ver) {
     relevance.buildIndex(ver, platformEl.value);
