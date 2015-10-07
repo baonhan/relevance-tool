@@ -77,7 +77,7 @@ function escapeHtml(unsafe) {
             }
             var ref = "<div class='rel-docs'>";
             ref += "<strong style='font-size: 14px'>" + escapeHtml(title) + "</strong>";
-            var desc = p.description? p.description : docs[p.key];
+            var desc = p.description? "<div class='relevance-property'>"+p.description+"</div>" : docs[p.key];
             ref += desc;
             ref += "</div>";
 
