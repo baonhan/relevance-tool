@@ -135,6 +135,11 @@ define(function(require, exports, module) {
         addTypeIndex(v);
       }
     }
+
+    // Sort version under platform
+    for(var pf in platformVersionEmu) {
+      platformVersionEmu[pf].sort(compareVersion);
+    }
   };
 
   exports.getPlatformVersionEmu = function() {
