@@ -8,6 +8,11 @@ QNA tool with autocompletion feature
 
 Install nodejs: [https://nodejs.org](https://nodejs.org)
 
+Install node libs:
+
+    > cd ace
+    > npm install --production
+
 #### Start server
     > cd ace
     > node static.js
@@ -26,7 +31,7 @@ Install nodejs: [https://nodejs.org](https://nodejs.org)
 
 Install node libs:
 
-    > npm install
+    > npm install --production
 
 Command line version requires QNA/FixletDebugger to evaluate relevance. For MacOS, BES Client is required to be installed on the same machine. For Windows, QNA is already included in this package. 
 
